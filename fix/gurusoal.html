@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard Admin - CBT App</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+        body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      overflow: hidden;
+    }
+    .form-label {
+      font-size: 13px;
+      font-weight: 500;
+      color: #374151;
+      margin-bottom: 6px;
+      display: block;
+    }
+    .btn-success {
+      background: #10b981;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      padding: 6px 12px;
+      font-size: 12px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .btn-danger {
+      background: #ef4444;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      padding: 6px 12px;
+      font-size: 12px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    .table th {
+      background: #f8f9fa;
+      padding: 12px;
+      text-align: left;
+      font-weight: 600;
+      color: #374151;
+      border-bottom: 1px solid #e5e7eb;
+    }
+    .table td {
+      padding: 12px;
+      border-bottom: 1px solid #f3f4f6;
+      color: #6b7280;
+    }
+    .table tbody tr:hover {
+      background: #f9fafb;
+    }
+    .stats-card {
+      background: white;
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      padding: 20px;
+      text-align: center;
+    }
+    .stats-number {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #1f2937;
+    }
+    .stats-label {
+      font-size: 14px;
+      color: #6b7280;
+      margin-top: 4px;
+    }
+  </style>
+</head>
+
+<body class="bg-gray-50">
+  <div class="flex min-h-screen">
+    <!-- Sidebar -->
+    <aside class="w-72 bg-white border-r border-gray-200 p-6">
+      <div class="flex items-center space-x-3 mb-8">
+        <div class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
+          <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+          </svg>
+        </div>
+        <span class="font-semibold text-gray-900">CBT Admin</span>
+      </div>
+      <nav class="space-y-2">
+        <a href="#" class="block px-4 py-2 rounded-lg bg-gray-100 font-medium text-gray-900">Ujian dan Soal</a>
+        <a href="#" class="block px-4 py-2 text-gray-600 hover:bg-gray-100 rounded-lg">Jadwal Ujian</a>
+        <a href="#" class="block px-4 py-2 text-gray-600 hover:bg-gray-100 rounded-lg">Monitoring Ujian</a>
+        <a href="#" class="block px-4 py-2 text-gray-600 hover:bg-gray-100 rounded-lg">Hasil Ujian</a>
+        <div class="border-t border-gray-200 my-4"></div>
+        <a href="#" class="block px-4 py-2 text-gray-600 hover:bg-gray-100 rounded-lg">Logout</a>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-1 p-8">
+      <div class="flex justify-between items-center mb-6">
+        <div>
+          <h1 class="text-3xl font-bold text-gray-900">Ujian dan Soal</h1>
+          <p class="text-gray-600">Kelola Ujian dan Soal di SDIT NURUL IMAN</p>
+        </div>
+        <button class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-500 flex items-center">
+          <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+          </svg>
+          Tambah Ujian dan Soal
+        </button>
+      </div>
+
+      <div class="overflow-x-auto bg-white rounded-lg shadow">
+        <table class="min-w-full text-sm">
+          <thead class="bg-gray-100 text-gray-700">
+            <tr>
+              <th class="text-left p-4 font-medium">id</th>
+              <th class="text-left p-4 font-medium">Nama Ujian</th>
+              <th class="text-left p-4 font-medium">Deskripsi</th>
+              <th class="text-left p-4 font-medium">Jumlah Soal</th>
+              <th class="text-left p-4 font-medium">soal</th>
+              <th class="text-left p-4 font-medium">Status</th>
+              <th class="text-left p-4 font-medium">Aksi</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-gray-200">
+            <tr class="hover:bg-gray-50">
+              <td class="p-4">1231s</td>
+              <td class="p-4 font-mono">IPA</td>
+              <td class="p-4">Ilmu Pengetahuan Alam - UAS</td>
+              <td class="p-4">50</td>
+              <td class="p-4"><span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full">Acak</span></td>
+              <td class="p-4"><span class="bg-yellow-100 text-yellow-800 text-xs px-2 py-1 rounded-full">Draft 50/50</span></td>
+              <td class="p-4">
+                <div class="flex gap-2">
+                  <button class="bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600 text-xs" onclick="openModal()">Edit</button>
+                  <button class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600 text-xs">Hapus</button>
+                </div>
+              </td>
+            </tr>
+            <!-- Duplicate this <tr> block for each guru -->
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+  <div id="modal" class="fixed inset-0 bg-black bg-opacity-30 flex items-center justify-center hidden">
+    <div class="bg-white rounded-lg shadow-lg p-6 w-full max-w-3xl">
+      <h2 class="text-lg font-semibold mb-4">Tambah Soal</h2>
+      <label class="form-label">Pertanyaan</label>
+      <input type="text" class="w-full border border-gray-300 p-2 rounded mb-4">
+
+      <div class="grid grid-cols-1 gap-3">
+        <div>
+          <label class="form-label">Jawaban A</label>
+          <input type="text" class="w-full border border-gray-300 p-2 rounded">
+          <label class="inline-flex items-center mt-1"><input type="checkbox" class="form-checkbox"> Kunci</label>
+        </div>
+        <div>
+          <label class="form-label">Jawaban B</label>
+          <input type="text" class="w-full border border-gray-300 p-2 rounded">
+          <label class="inline-flex items-center mt-1"><input type="checkbox" class="form-checkbox"> Kunci</label>
+        </div>
+        <div>
+          <label class="form-label">Jawaban C</label>
+          <input type="text" class="w-full border border-gray-300 p-2 rounded">
+          <label class="inline-flex items-center mt-1"><input type="checkbox" class="form-checkbox"> Kunci</label>
+        </div>
+        <div>
+          <label class="form-label">Jawaban D</label>
+          <input type="text" class="w-full border border-gray-300 p-2 rounded">
+          <label class="inline-flex items-center mt-1"><input type="checkbox" class="form-checkbox"> Kunci</label>
+        </div>
+        <div>
+          <label class="form-label">Jawaban E</label>
+          <input type="text" class="w-full border border-gray-300 p-2 rounded">
+          <label class="inline-flex items-center mt-1"><input type="checkbox" class="form-checkbox"> Kunci</label>
+        </div>
+      </div>
+
+      <div class="mt-6 flex justify-end gap-2">
+        <button onclick="closeModal()" class="btn-danger">Batal</button>
+        <button class="btn-success">Simpan Soal</button>
+      </div>
+
+      <hr class="my-6">
+      <h3 class="text-md font-semibold mb-2">Daftar Soal</h3>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>No</th>
+            <th>Pertanyaan</th>
+            <th>Jawaban Benar</th>
+            <th>Aksi</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Apa ibu kota Indonesia?</td>
+            <td>Jakarta</td>
+            <td>
+              <button class="btn-success">Edit</button>
+              <button class="btn-danger">Hapus</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script>
+    function openModal() {
+      document.getElementById('modal').classList.remove('hidden');
+    }
+    function closeModal() {
+      document.getElementById('modal').classList.add('hidden');
+    }
+  </script>
+</body>
+
+</html>

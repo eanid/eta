@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard Admin - CBT App</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .form-input {
+      background: #f8f9fa;
+      border: 1px solid #e9ecef;
+      border-radius: 8px;
+      padding: 12px 16px;
+      font-size: 14px;
+      transition: all 0.2s ease;
+      font-weight: 400;
+    }
+
+    .form-input:focus {
+      outline: none;
+      border-color: #3b82f6;
+      background: #ffffff;
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+    }
+
+    .form-label {
+      font-size: 13px;
+      font-weight: 500;
+      color: #374151;
+      margin-bottom: 6px;
+      display: block;
+    }
+
+    .btn-primary {
+      background: #3b82f6;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 8px 16px;
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .btn-primary:hover {
+      background: #2563eb;
+    }
+
+    .btn-success {
+      background: #10b981;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      padding: 6px 12px;
+      font-size: 12px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .btn-success:hover {
+      background: #059669;
+    }
+
+    .btn-danger {
+      background: #ef4444;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      padding: 6px 12px;
+      font-size: 12px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .btn-danger:hover {
+      background: #dc2626;
+    }
+
+    .btn-secondary {
+      background: #6b7280;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      padding: 6px 12px;
+      font-size: 12px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .btn-secondary:hover {
+      background: #4b5563;
+    }
+
+    .sidebar-item {
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-size: 13px;
+      color: #6b7280;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 2px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .sidebar-item:hover {
+      background: #f9fafb;
+    }
+
+    .sidebar-item.active {
+      background: #f3f4f6;
+      color: #374151;
+      font-weight: 500;
+    }
+
+    .tab-btn {
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-size: 13px;
+      color: #6b7280;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-weight: 500;
+    }
+
+    .tab-btn.active {
+      background: #3b82f6;
+      color: white;
+    }
+
+    .tab-btn:hover:not(.active) {
+      background: #f3f4f6;
+    }
+
+    .table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+
+    .table th {
+      background: #f8f9fa;
+      padding: 12px;
+      text-align: left;
+      font-weight: 600;
+      color: #374151;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    .table td {
+      padding: 12px;
+      border-bottom: 1px solid #f3f4f6;
+      color: #6b7280;
+    }
+
+    .table tbody tr:hover {
+      background: #f9fafb;
+    }
+
+    .divider {
+      height: 1px;
+      background: #e5e7eb;
+      margin: 16px 0;
+    }
+
+    .main-layout {
+      display: flex;
+      height: 100vh;
+    }
+
+    .sidebar {
+      width: 280px;
+      background: #f8f9fa;
+      border-right: 1px solid #e5e7eb;
+      flex-shrink: 0;
+    }
+
+    .content-area {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      background: #ffffff;
+      overflow: hidden;
+    }
+
+    .content-header {
+      padding: 24px;
+      border-bottom: 1px solid #e5e7eb;
+      background: white;
+    }
+
+    .content-body {
+      flex: 1;
+      overflow-y: auto;
+      padding: 24px;
+    }
+
+    .modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+
+    .modal.active {
+      display: flex;
+    }
+
+    .modal-content {
+      background: white;
+      border-radius: 12px;
+      padding: 24px;
+      width: 100%;
+      max-width: 500px;
+      max-height: 80vh;
+      overflow-y: auto;
+    }
+
+    .stats-card {
+      background: white;
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .stats-number {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #1f2937;
+    }
+
+    .stats-label {
+      font-size: 14px;
+      color: #6b7280;
+      margin-top: 4px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="main-layout">
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <div class="p-6">
+        <div class="flex items-center space-x-3 mb-8">
+          <div class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
+            <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253">
+              </path>
+            </svg>
+          </div>
+          <span class="font-semibold text-gray-900">CBT Admin</span>
+        </div>
+
+        <nav class="space-y-1">
+          <div class="sidebar-item" onclick="showSection('guru')">
+            <span>Data Guru</span>
+          </div>
+          <div class="sidebar-item" onclick="showSection('kelas')">
+            <span>Data Kelas</span>
+          </div>
+          <div class="sidebar-item" onclick="showSection('murid')">
+            <span>Data Murid</span>
+          </div>
+          <div class="sidebar-item" onclick="showSection('murid')">
+            <span>Monitoring Ujian</span>
+          </div>
+          <div class="sidebar-item">
+            <span>Hasil Ujian</span>
+          </div>
+        </nav>
+
+        <div class="divider"></div>
+
+        <div class="space-y-1">
+          <div class="sidebar-item">
+            <span>Logout</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Content Area -->
+    <div class="content-area">
+      <!-- Dashboard Section -->
+       <div class="min-h-screen p-6">
+    <!-- Header -->
+    <div class="header-section">
+      <div class="flex justify-between items-center">
+        <div>
+          <h1 class="text-3xl font-bold text-gray-900 mb-2">Data Guru</h1>
+          <p class="text-gray-600">Kelola data guru dan tenaga pengajar SDIT NURUL IMAN</p>
+        </div>
+        <button class="btn-primary" onclick="openAddModal()">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+          </svg>
+          Tambah Guru
+        </button>
+      </div>
+    </div>
+
+    <!-- Stats -->
+
+
+    <!-- Search and Filter -->
+    <div class="bg-white p-6 rounded-12 shadow-sm mb-6">
+      <div class="flex flex-col md:flex-row gap-4 items-center justify-between">
+        <div class="search-container">
+          <svg class="search-icon w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+          </svg>
+          <input type="text" class="form-input search-input w-full" placeholder="Cari nama guru atau mata pelajaran..." id="searchInput">
+        </div>
+        <div class="flex gap-3">
+          <select class="form-input" id="filterMapel">
+            <option value="">Semua Mata Pelajaran</option>
+            <option value="Matematika">Matematika</option>
+            <option value="Bahasa Indonesia">Bahasa Indonesia</option>
+            <option value="IPA">IPA</option>
+            <option value="IPS">IPS</option>
+            <option value="Bahasa Inggris">Bahasa Inggris</option>
+            <option value="Pendidikan Agama">Pendidikan Agama</option>
+            <option value="Seni Budaya">Seni Budaya</option>
+            <option value="Olahraga">Olahraga</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- Table -->
+    <div class="bg-white rounded-12 shadow-sm overflow-hidden">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Guru</th>
+            <th>NIP</th>
+            <th>Email</th>
+            <th>Mata Pelajaran</th>
+            <th>Role</th>
+            <th>Status</th>
+            <th>Aksi</th>
+          </tr>
+        </thead>
+        <tbody id="guruTableBody">
+          <!-- Data will be inserted here by JavaScript -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+  </div>
+  </div>
+
+  <script>
+    // Mock data guru
+    const guruData = [
+      {
+        id: 1,
+        nama: "Ahmad Santoso, S.Pd",
+        nip: "196501011990031001",
+        email: "ahmad.santoso@sditnuruliman.sch.id",
+        telepon: "08123456789",
+        mapel: "Matematika",
+        role: "Guru",
+        status: "Aktif",
+        avatar: "AS"
+      },
+      {
+        id: 2,
+        nama: "Siti Nurhaliza, S.Pd",
+        nip: "197205102000032002",
+        email: "siti.nurhaliza@sditnuruliman.sch.id",
+        telepon: "08123456790",
+        mapel: "Bahasa Indonesia",
+        role: "Guru",
+        status: "Aktif",
+        avatar: "SN"
+      },
+      {
+        id: 3,
+        nama: "Budi Prakoso, S.Si",
+        nip: "198003151998031003",
+        email: "budi.prakoso@sditnuruliman.sch.id",
+        telepon: "08123456791",
+        mapel: "IPA",
+        role: "Guru",
+        status: "Aktif",
+        avatar: "BP"
+      },
+      {
+        id: 4,
+        nama: "Dewi Sartika, S.Pd",
+        nip: "198512202005032004",
+        email: "dewi.sartika@sditnuruliman.sch.id",
+        telepon: "08123456792",
+        mapel: "IPS",
+        role: "Guru",
+        status: "Aktif",
+        avatar: "DS"
+      },
+      {
+        id: 5,
+        nama: "Rizki Ramadhan, S.Pd",
+        nip: "199001051995031005",
+        email: "rizki.ramadhan@sditnuruliman.sch.id",
+        telepon: "08123456793",
+        mapel: "Bahasa Inggris",
+        role: "Guru",
+        status: "Aktif",
+        avatar: "RR"
+      },
+      {
+        id: 6,
+        nama: "Fatimah Azzahra, S.Ag",
+        nip: "197808252000032006",
+        email: "fatimah.azzahra@sditnuruliman.sch.id",
+        telepon: "08123456794",
+        mapel: "Pendidikan Agama",
+        role: "Guru",
+        status: "Aktif",
+        avatar: "FA"
+      },
+      {
+        id: 7,
+        nama: "Andi Wijaya, S.Pd",
+        nip: "198906102010031007",
+        email: "andi.wijaya@sditnuruliman.sch.id",
+        telepon: "08123456795",
+        mapel: "Seni Budaya",
+        role: "Guru",
+        status: "Aktif",
+        avatar: "AW"
+      },
+      {
+        id: 8,
+        nama: "Linda Sari, S.Pd",
+        nip: "199205152015032008",
+        email: "linda.sari@sditnuruliman.sch.id",
+        telepon: "08123456796",
+        mapel: "Olahraga",
+        role: "Guru",
+        status: "Aktif",
+        avatar: "LS"
+      },
+      {
+        id: 9,
+        nama: "Hendra Gunawan, S.Pd",
+        nip: "197712301999031009",
+        email: "hendra.gunawan@sditnuruliman.sch.id",
+        telepon: "08123456797",
+        mapel: "Matematika",
+        role: "Guru",
+        status: "Aktif",
+        avatar: "HG"
+      },
+      {
+        id: 10,
+        nama: "Nurul Hidayah, S.Pd",
+        nip: "198404202008032010",
+        email: "nurul.hidayah@sditnuruliman.sch.id",
+        telepon: "08123456798",
+        mapel: "Bahasa Indonesia",
+        role: "Guru",
+        status: "Aktif",
+        avatar: "NH"
+      }
+    ];
+
+    let filteredData = [...guruData];
+
+    // Render table
+    function renderTable(data = filteredData) {
+      const tbody = document.getElementById('guruTableBody');
+
+      if (data.length === 0) {
+        tbody.innerHTML = `
+          <tr>
+            <td colspan="7" class="no-data">
+              <svg class="w-12 h-12 mx-auto mb-4 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.172 16.172a4 4 0 015.656 0M9 12h6m-6-4h6m2 5.291A7.962 7.962 0 0112 15c-2.34 0-4.513.64-6.397 1.76C3.912 17.758 2 19.217 2 21v1a1 1 0 001 1h18a1 1 0 001-1v-1c0-1.783-1.912-3.242-3.603-4.24A7.962 7.962 0 0112 15z"></path>
+              </svg>
+              <p>Tidak ada data guru yang ditemukan</p>
+            </td>
+          </tr>
+        `;
+        return;
+      }
+
+      tbody.innerHTML = data.map(guru => `
+        <tr>
+          <td>
+            <div class="flex items-center gap-3">
+              <div class="avatar">${guru.avatar}</div>
+              <div>
+                <div class="font-semibold text-gray-900">${guru.nama}</div>
+                <div class="text-sm text-gray-500">${guru.telepon}</div>
+              </div>
+            </div>
+          </td>
+          <td class="font-mono text-sm">${guru.nip}</td>
+          <td>${guru.email}</td>
+          <td>
+            <span class="inline-block bg-blue-50 text-blue-700 px-3 py-1 rounded-full text-sm font-medium">
+              ${guru.mapel}
+            </span>
+          </td>
+          <td>
+            <span class="role-badge">${guru.role}</span>
+          </td>
+          <td>
+            <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
+              <div class="w-1.5 h-1.5 bg-green-400 rounded-full mr-1"></div>
+              ${guru.status}
+            </span>
+          </td>
+          <td>
+            <div class="flex gap-2">
+              <button class="btn-success" onclick="editGuru(${guru.id})">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                </svg>
+              </button>
+              <button class="btn-danger" onclick="deleteGuru(${guru.id})">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                </svg>
+              </button>
+            </div>
+          </td>
+        </tr>
+      `).join('');
+    }
+
+    // Search function
+    function searchGuru() {
+      const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+      const mapelFilter = document.getElementById('filterMapel').value;
+
+      filteredData = guruData.filter(guru => {
+        const matchesSearch = guru.nama.toLowerCase().includes(searchTerm) ||
+                            guru.mapel.toLowerCase().includes(searchTerm) ||
+                            guru.email.toLowerCase().includes(searchTerm);
+        const matchesMapel = !mapelFilter || guru.mapel === mapelFilter;
+
+        return matchesSearch && matchesMapel;
+      });
+
+      renderTable();
+      updateStats();
+    }
+
+    // Update statistics
+    function updateStats() {
+      document.getElementById('total-guru').textContent = filteredData.length;
+      document.getElementById('guru-aktif').textContent = filteredData.filter(g => g.status === 'Aktif').length;
+
+      const uniqueMapel = [...new Set(filteredData.map(g => g.mapel))];
+      document.getElementById('mata-pelajaran').textContent = uniqueMapel.length;
+    }
+
+    // Edit guru function
+    function editGuru(id) {
+      const guru = guruData.find(g => g.id === id);
+      if (guru) {
+        alert(`Edit guru: ${guru.nama}\nNIP: ${guru.nip}\nEmail: ${guru.email}\nMata Pelajaran: ${guru.mapel}`);
+        // Here you would typically open an edit modal or navigate to edit page
+      }
+    }
+
+    // Delete guru function
+    function deleteGuru(id) {
+      const guru = guruData.find(g => g.id === id);
+      if (guru && confirm(`Apakah Anda yakin ingin menghapus data guru ${guru.nama}?`)) {
+        const index = guruData.findIndex(g => g.id === id);
+        guruData.splice(index, 1);
+        searchGuru(); // Refresh the filtered data and table
+        alert('Data guru berhasil dihapus!');
+      }
+    }
+
+    // Add new guru function
+    function openAddModal() {
+      alert('Fitur tambah guru akan segera tersedia!\nForm akan terbuka untuk menambah data guru baru.');
+      // Here you would typically open an add modal
+    }
+
+    // Event listeners
+    document.getElementById('searchInput').addEventListener('input', searchGuru);
+    document.getElementById('filterMapel').addEventListener('change', searchGuru);
+
+    // Initialize
+    renderTable();
+    updateStats();
+  </script>
+
+  <script>
+    // Data storage
+    let data = {
+      guru: [],
+      kelas: [],
+      murid: []
+    };
+
+    let currentSection = 'dashboard';
+    let editingId = null;
+
+    // Configuration for each section
+    const config = {
+      guru: {
+        title: 'Data Guru',
+        subtitle: 'Kelola data guru dan tenaga pengajar',
+        fields: [
+          { name: 'nama', label: 'Nama Lengkap', type: 'text', required: true },
+          { name: 'nip', label: 'NIP', type: 'text', required: true },
+          { name: 'email', label: 'Email', type: 'email', required: true },
+          { name: 'telepon', label: 'No. Telepon', type: 'tel', required: true },
+          { name: 'mapel', label: 'Mata Pelajaran', type: 'text', required: true },
+          { name: 'alamat', label: 'Alamat', type: 'textarea' }
+        ],
+        headers: ['Nama', 'NIP', 'Email', 'Telepon', 'Mata Pelajaran', 'Aksi']
+      },
+      kelas: {
+        title: 'Data Kelas',
+        subtitle: 'Kelola data kelas dan ruangan',
+        fields: [
+          { name: 'nama', label: 'Nama Kelas', type: 'text', required: true },
+          { name: 'tingkat', label: 'Tingkat', type: 'select', options: ['1', '2', '3', '4', '5', '6'], required: true },
+          { name: 'wali_kelas', label: 'Wali Kelas', type: 'select', options: 'guru', required: true },
+          { name: 'kapasitas', label: 'Kapasitas', type: 'number', required: true },
+          { name: 'ruangan', label: 'Ruangan', type: 'text', required: true }
+        ],
+        headers: ['Nama Kelas', 'Tingkat', 'Wali Kelas', 'Kapasitas', 'Ruangan', 'Aksi']
+      },
+      murid: {
+        title: 'Data Murid',
+        subtitle: 'Kelola data siswa dan siswi',
+        fields: [
+          { name: 'nama', label: 'Nama Lengkap', type: 'text', required: true },
+          { name: 'nisn', label: 'NISN', type: 'text', required: true },
+          { name: 'kelas', label: 'Kelas', type: 'select', options: 'kelas', required: true },
+          { name: 'jk', label: 'Jenis Kelamin', type: 'select', options: ['Laki-laki', 'Perempuan'], required: true },
+          { name: 'tanggal_lahir', label: 'Tanggal Lahir', type: 'date', required: true },
+          { name: 'alamat', label: 'Alamat', type: 'textarea' },
+          { name: 'orang_tua', label: 'Nama Orang Tua', type: 'text', required: true },
+          { name: 'telepon_ortu', label: 'Telepon Orang Tua', type: 'tel', required: true }
+        ],
+        headers: ['Nama', 'NISN', 'Kelas', 'Jenis Kelamin', 'Tanggal Lahir', 'Orang Tua', 'Aksi']
+      }
+    };
+
+    // Show dashboard
+    function showDashboard() {
+      currentSection = 'dashboard';
+      document.getElementById('dashboard-section').style.display = 'block';
+      document.getElementById('data-section').style.display = 'none';
+
+      // Update sidebar active state
+      document.querySelectorAll('.sidebar-item').forEach(item => {
+        item.classList.remove('active');
+      });
+      document.querySelector('.sidebar-item').classList.add('active');
+
+      updateStats();
+    }
+
+    // Show section
+    function showSection(section) {
+      currentSection = section;
+      document.getElementById('dashboard-section').style.display = 'none';
+      document.getElementById('data-section').style.display = 'block';
+
+      // Update sidebar active state
+      document.querySelectorAll('.sidebar-item').forEach(item => {
+        item.classList.remove('active');
+      });
+
+      const sectionConfig = config[section];
+      document.getElementById('section-title').textContent = sectionConfig.title;
+      document.getElementById('section-subtitle').textContent = sectionConfig.subtitle;
+      document.getElementById('add-button').setAttribute('onclick', `openModal('${section}')`);
+
+      renderTable(section);
+    }
+
+    // Render table
+    function renderTable(section) {
+      const sectionConfig = config[section];
+      const tableHead = document.getElementById('table-head');
+      const tableBody = document.getElementById('table-body');
+
+      // Render headers
+      tableHead.innerHTML = '<tr>' +
+        sectionConfig.headers.map(header => `<th>${header}</th>`).join('') +
+        '</tr>';
+
+      // Render data
+      const sectionData = data[section];
+      if (sectionData.length === 0) {
+        tableBody.innerHTML = `<tr><td colspan="${sectionConfig.headers.length}" class="text-center text-gray-500 py-8">Belum ada data ${section}</td></tr>`;
+      } else {
+        tableBody.innerHTML = sectionData.map((item, index) => {
+          let row = '<tr>';
+
+          if (section === 'guru') {
+            row += `<td class="font-medium">${item.nama}</td>`;
+            row += `<td>${item.nip}</td>`;
+            row += `<td>${item.email}</td>`;
+            row += `<td>${item.telepon}</td>`;
+            row += `<td>${item.mapel}</td>`;
+          } else if (section === 'kelas') {
+            row += `<td class="font-medium">${item.nama}</td>`;
+            row += `<td>Kelas ${item.tingkat}</td>`;
+            row += `<td>${getGuruName(item.wali_kelas)}</td>`;
+            row += `<td>${item.kapasitas} siswa</td>`;
+            row += `<td>${item.ruangan}</td>`;
+          } else if (section === murid') {
+            row += `<td class="font-medium">${item.nama}</td>`;
+            row += `<td>${item.nisn}</td>`;
+            row += `<td>${getKelasName(item.kelas)}</td>`;
+            row += `<td>${item.jk}</td>`;
+            row += `<td>${formatDate(item.tanggal_lahir)}</td>`;
+            row += `<td>${item.orang_tua}</td>`;
+          }
+
+          row += `<td>
+            <button class="btn-success mr-2" onclick="editData('${section}', ${index})">Edit</button>
+            <button class="btn-danger" onclick="deleteData('${section}', ${index})">Hapus</button>
+          </td>`;
+          row += '</tr>';
+
+          return row;
+        }).join('');
+      }
+    }
+
+    // Open modal
+    function openModal(section = currentSection) {
+      const modal = document.getElementById('modal');
+      const modalTitle = document.getElementById('modal-title');
+      const formFields = document.getElementById('form-fields');
+
+      if (editingId !== null) {
+        modalTitle.textContent = `Edit ${config[section].title}`;
+      } else {
+        modalTitle.textContent = `Tambah ${config[section].title}`;
+      }
+
+      // Generate form fields
+      const sectionConfig = config[section];
+      formFields.innerHTML = sectionConfig.fields.map(field => {
+        let fieldHtml = `<div>
+          <label class="form-label">${field.label}${field.required ? ' *' : ''}</label>`;
+
+        if (field.type === 'textarea') {
+          fieldHtml += `<textarea name="${field.name}" class="form-input w-full" rows="3" ${field.required ? 'required' : ''}></textarea>`;
+        } else if (field.type === 'select') {
+          fieldHtml += `<select name="${field.name}" class="form-input w-full" ${field.required ? 'required' : ''}>
+            <option value="">Pilih ${field.label}</option>`;
+
+          let options = [];
+          if (Array.isArray(field.options)) {
+            options = field.options;
+          } else if (field.options === 'guru') {
+            options = data.guru.map(guru => ({ value: guru.nip, label: guru.nama }));
+          } else if (field.options === 'kelas') {
+            options = data.kelas.map(kelas => ({ value: kelas.nama, label: kelas.nama }));
+          }
+
+          if (Array.isArray(options) && typeof options[0] === 'string') {
+            options.forEach(option => {
+              fieldHtml += `<option value="${option}">${option}</option>`;
+            });
+          } else {
+            options.forEach(option => {
+              fieldHtml += `<option value="${option.value}">${option.label}</option>`;
+            });
+          }
+
+          fieldHtml += '</select>';
+        } else {
+          fieldHtml += `<input type="${field.type}" name="${field.name}" class="form-input w-full" ${field.required ? 'required' : ''}>`;
+        }
+
+        fieldHtml += '</div>';
+        return fieldHtml;
+      }).join('');
+
+      // Fill data if editing
+      if (editingId !== null) {
+        const itemData = data[section][editingId];
+        sectionConfig.fields.forEach(field => {
+          const input = document.querySelector(`[name="${field.name}"]`);
+          if (input && itemData[field.name]) {
+            input.value = itemData[field.name];
+          }
+        });
+      }
+
+      modal.classList.add('active');
+    }
+
+    // Close modal
+    function closeModal() {
+      document.getElementById('modal').classList.remove('active');
+      document.getElementById('data-form').reset();
+      editingId = null;
+    }
+
+    // Handle form submission
+    document.getElementById('data-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const formData = new FormData(this);
+      const newData = {};
+
+      for (let [key, value] of formData.entries()) {
+        newData[key] = value;
+      }
+
+      newData.id = Date.now(); // Simple ID generation
+
+      if (editingId !== null) {
+        data[currentSection][editingId] = { ...data[currentSection][editingId], ...newData };
+      } else {
+        data[currentSection].push(newData);
+      }
+
+      renderTable(currentSection);
+      updateStats();
+      closeModal();
+    });
+
+    // Edit data
+    function editData(section, index) {
+      editingId = index;
+      openModal(section);
+    }
+
+    // Delete data
+    function deleteData(section, index) {
+      if (confirm('Apakah Anda yakin ingin menghapus data ini?')) {
+        data[section].splice(index, 1);
+        renderTable(section);
+        updateStats();
+      }
+    }
+
+    // Helper functions
+    function getGuruName(nip) {
+      const guru = data.guru.find(g => g.nip === nip);
+      return guru ? guru.nama : '-';
+    }
+
+    function getKelasName(namaKelas) {
+      return namaKelas || '-';
+    }
+
+    function formatDate(dateString) {
+      if (!dateString) return '-';
+      const date = new Date(dateString);
+      return date.toLocaleDateString('id-ID');
+    }
+
+    function updateStats() {
+      document.getElementById('total-guru').textContent = data.guru.length;
+      document.getElementById('total-kelas').textContent = data.kelas.length;
+      document.getElementById('total-murid').textContent = data.murid.length;
+
+      // Latest data
+      document.getElementById('latest-guru').textContent = data.guru.length > 0 ? data.guru[data.guru.length - 1].nama : '-';
+      document.getElementById('latest-kelas').textContent = data.kelas.length > 0 ? data.kelas[data.kelas.length - 1].nama : '-';
+      document.getElementById('latest-murid').textContent = data.murid.length > 0 ? data.murid[data.murid.length - 1].nama : '-';
+
+      // Ratios
+      const ratioMurid = data.kelas.length > 0 ? Math.round(data.murid.length / data.kelas.length) : 0;
+      const ratioGuru = data.kelas.length > 0 ? (data.guru.length / data.kelas.length).toFixed(1) : 0;
+
+      document.getElementById('ratio-murid').textContent = ratioMurid;
+      document.getElementById('ratio-guru').textContent = ratioGuru;
+    }
+
+    // Initialize
+    updateStats();
+  </script>
+</body>
+
+</html>

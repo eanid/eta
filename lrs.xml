@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" modified="2025-06-16T00:00:00.000Z" agent="5.0" version="24.7.17" etag="drawio-diagram" type="device">
+  <diagram id="CBT-LRS-ERD" name="CBT Learning Record Store">
+    <mxGraphModel dx="1422" dy="794" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- Title -->
+        <mxCell id="title" value="CBT Learning Record Store - Database Schema" style="text;strokeColor=none;fillColor=none;html=1;fontSize=24;fontStyle=1;verticalAlign=middle;align=center;" vertex="1" parent="1">
+          <mxGeometry x="400" y="20" width="400" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- User Table -->
+        <mxCell id="user_table" value="" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="80" y="100" width="200" height="280" as="geometry" />
+        </mxCell>
+        <mxCell id="user_title" value="user" style="text;strokeColor=none;fillColor=none;html=1;fontSize=14;fontStyle=1;verticalAlign=middle;align=center;" vertex="1" parent="user_table">
+          <mxGeometry y="26" width="200" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="user_fields" value="🔑 id (INT, PK, AI)&#xa;username (VARCHAR(50), UQ)&#xa;email (VARCHAR(100), UQ)&#xa;password (VARCHAR(255))&#xa;role (ENUM: admin/student/teacher)&#xa;full_name (VARCHAR(100))&#xa;phone (VARCHAR(20))&#xa;last_login (TIMESTAMP)&#xa;NIK (VARCHAR(100))&#xa;NISN (VARCHAR(100))&#xa;🔗 kelas_id (INT, FK)" style="text;strokeColor=none;fillColor=none;html=1;fontSize=11;fontStyle=0;verticalAlign=top;align=left;whiteSpace=wrap;" vertex="1" parent="user_table">
+          <mxGeometry y="52" width="200" height="228" as="geometry" />
+        </mxCell>
+
+        <!-- Kelas Table -->
+        <mxCell id="kelas_table" value="" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="360" y="100" width="180" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="kelas_title" value="kelas" style="text;strokeColor=none;fillColor=none;html=1;fontSize=14;fontStyle=1;verticalAlign=middle;align=center;" vertex="1" parent="kelas_table">
+          <mxGeometry y="26" width="180" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="kelas_fields" value="🔑 id (INT, PK, AI)&#xa;nama_kelas (VARCHAR(100))&#xa;deskripsi (TEXT)" style="text;strokeColor=none;fillColor=none;html=1;fontSize=11;fontStyle=0;verticalAlign=top;align=left;whiteSpace=wrap;" vertex="1" parent="kelas_table">
+          <mxGeometry y="52" width="180" height="68" as="geometry" />
+        </mxCell>
+
+        <!-- Ujian Table -->
+        <mxCell id="ujian_table" value="" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="620" y="100" width="220" height="320" as="geometry" />
+        </mxCell>
+        <mxCell id="ujian_title" value="ujian" style="text;strokeColor=none;fillColor=none;html=1;fontSize=14;fontStyle=1;verticalAlign=middle;align=center;" vertex="1" parent="ujian_table">
+          <mxGeometry y="26" width="220" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="ujian_fields" value="🔑 id (INT, PK, AI)&#xa;nama_ujian (VARCHAR(255))&#xa;deskripsi (TEXT)&#xa;tanggal_ujian (DATE)&#xa;waktu_mulai (TIME)&#xa;durasi (INT) - minutes&#xa;jumlah_soal (INT)&#xa;status (ENUM: draft/active/inactive/completed)&#xa;passing_score (DECIMAL(5,2))&#xa;shuffle_questions (BOOLEAN)&#xa;🔗 created_by (INT, FK → user.id)&#xa;kelas (VARCHAR)&#xa;&#xa;📋 Indexes:&#xa;- idx_tanggal (tanggal_ujian)&#xa;- idx_status (status)&#xa;- idx_created_by (created_by)" style="text;strokeColor=none;fillColor=none;html=1;fontSize=11;fontStyle=0;verticalAlign=top;align=left;whiteSpace=wrap;" vertex="1" parent="ujian_table">
+          <mxGeometry y="52" width="220" height="268" as="geometry" />
+        </mxCell>
+
+        <!-- Soal Table -->
+        <mxCell id="soal_table" value="" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="900" y="100" width="200" height="280" as="geometry" />
+        </mxCell>
+        <mxCell id="soal_title" value="soal" style="text;strokeColor=none;fillColor=none;html=1;fontSize=14;fontStyle=1;verticalAlign=middle;align=center;" vertex="1" parent="soal_table">
+          <mxGeometry y="26" width="200" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="soal_fields" value="🔑 id (INT, PK, AI)&#xa;🔗 ujian_id (INT, FK → ujian.id)&#xa;nomor_soal (INT)&#xa;pertanyaan (TEXT)&#xa;pilihan_a (VARCHAR(500))&#xa;pilihan_b (VARCHAR(500))&#xa;pilihan_c (VARCHAR(500))&#xa;pilihan_d (VARCHAR(500))&#xa;pilihan_e (VARCHAR(500))&#xa;jawaban_benar (ENUM: A/B/C/D/E)&#xa;bobot (DECIMAL(5,2))&#xa;kategori (VARCHAR(100))&#xa;gambar_url (VARCHAR(500))&#xa;&#xa;🔒 Unique: (ujian_id, nomor_soal)" style="text;strokeColor=none;fillColor=none;html=1;fontSize=11;fontStyle=0;verticalAlign=top;align=left;whiteSpace=wrap;" vertex="1" parent="soal_table">
+          <mxGeometry y="52" width="200" height="228" as="geometry" />
+        </mxCell>
+
+        <!-- Hasil Ujian Table -->
+        <mxCell id="hasil_table" value="" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="80" y="450" width="240" height="340" as="geometry" />
+        </mxCell>
+        <mxCell id="hasil_title" value="hasil_ujian" style="text;strokeColor=none;fillColor=none;html=1;fontSize=14;fontStyle=1;verticalAlign=middle;align=center;" vertex="1" parent="hasil_table">
+          <mxGeometry y="26" width="240" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hasil_fields" value="🔑 id (INT, PK, AI)&#xa;🔗 ujian_id (INT, FK → ujian.id)&#xa;🔗 user_id (INT, FK → user.id)&#xa;nilai_total (DECIMAL(5,2))&#xa;jumlah_benar (INT)&#xa;jumlah_salah (INT)&#xa;jumlah_kosong (INT)&#xa;waktu_mulai (TIMESTAMP)&#xa;waktu_selesai (TIMESTAMP)&#xa;durasi_pengerjaan (INT) - minutes&#xa;status (ENUM: in_progress/completed/timeout/cancelled)&#xa;tanggal (DATE)&#xa;is_passed (BOOLEAN)&#xa;user_agent (TEXT)&#xa;created_at (TIMESTAMP)&#xa;&#xa;🔒 Unique: (user_id, ujian_id, attempt_number)&#xa;📋 Indexes: user_id, ujian_id, tanggal, status" style="text;strokeColor=none;fillColor=none;html=1;fontSize=11;fontStyle=0;verticalAlign=top;align=left;whiteSpace=wrap;" vertex="1" parent="hasil_table">
+          <mxGeometry y="52" width="240" height="288" as="geometry" />
+        </mxCell>
+
+        <!-- Jawaban User Table -->
+        <mxCell id="jawaban_table" value="" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="400" y="450" width="220" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="jawaban_title" value="jawaban_user" style="text;strokeColor=none;fillColor=none;html=1;fontSize=14;fontStyle=1;verticalAlign=middle;align=center;" vertex="1" parent="jawaban_table">
+          <mxGeometry y="26" width="220" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="jawaban_fields" value="🔑 id (INT, PK, AI)&#xa;🔗 hasil_id (INT, FK → hasil_ujian.id)&#xa;🔗 soal_id (INT, FK → soal.id)&#xa;jawaban_dipilih (ENUM: A/B/C/D/E)&#xa;is_correct (BOOLEAN)&#xa;waktu_jawab (TIMESTAMP)&#xa;&#xa;🔒 Unique: (hasil_id, soal_id)&#xa;📋 Indexes: hasil_id, soal_id, is_correct" style="text;strokeColor=none;fillColor=none;html=1;fontSize=11;fontStyle=0;verticalAlign=top;align=left;whiteSpace=wrap;" vertex="1" parent="jawaban_table">
+          <mxGeometry y="52" width="220" height="148" as="geometry" />
+        </mxCell>
+
+        <!-- Relationships -->
+        <!-- User to Kelas -->
+        <mxCell id="rel_user_kelas" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.9;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="user_table" target="kelas_table">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="280" y="350" as="sourcePoint" />
+            <mxPoint x="330" y="300" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel_user_kelas_label" value="N:1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="rel_user_kelas">
+          <mxGeometry x="-0.1" y="-1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- User to Ujian (created_by) -->
+        <mxCell id="rel_user_ujian" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.3;exitDx=0;exitDy=0;entryX=0;entryY=0.8;entryDx=0;entryDy=0;" edge="1" parent="1" source="user_table" target="ujian_table">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="280" y="200" as="sourcePoint" />
+            <mxPoint x="620" y="350" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel_user_ujian_label" value="1:N (creates)" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="rel_user_ujian">
+          <mxGeometry x="-0.1" y="-1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Ujian to Soal -->
+        <mxCell id="rel_ujian_soal" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.3;entryDx=0;entryDy=0;" edge="1" parent="1" source="ujian_table" target="soal_table">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="840" y="260" as="sourcePoint" />
+            <mxPoint x="900" y="180" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel_ujian_soal_label" value="1:N" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="rel_ujian_soal">
+          <mxGeometry x="-0.1" y="-1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- User to Hasil Ujian -->
+        <mxCell id="rel_user_hasil" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.2;exitY=1;exitDx=0;exitDy=0;entryX=0.2;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="user_table" target="hasil_table">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="120" y="380" as="sourcePoint" />
+            <mxPoint x="120" y="450" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel_user_hasil_label" value="1:N" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="rel_user_hasil">
+          <mxGeometry x="-0.1" y="-1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Ujian to Hasil Ujian -->
+        <mxCell id="rel_ujian_hasil" value="" style="endArrow=classic;html=1;rounded=0;exitX=0;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0.2;entryDx=0;entryDy=0;" edge="1" parent="1" source="ujian_table" target="hasil_table">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="620" y="420" as="sourcePoint" />
+            <mxPoint x="320" y="520" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel_ujian_hasil_label" value="1:N" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="rel_ujian_hasil">
+          <mxGeometry x="-0.1" y="-1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Hasil Ujian to Jawaban User -->
+        <mxCell id="rel_hasil_jawaban" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.7;exitDx=0;exitDy=0;entryX=0;entryY=0.3;entryDx=0;entryDy=0;" edge="1" parent="1" source="hasil_table" target="jawaban_table">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="320" y="688" as="sourcePoint" />
+            <mxPoint x="400" y="520" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel_hasil_jawaban_label" value="1:N" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="rel_hasil_jawaban">
+          <mxGeometry x="-0.1" y="-1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Soal to Jawaban User -->
+        <mxCell id="rel_soal_jawaban" value="" style="endArrow=classic;html=1;rounded=0;exitX=0;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0.8;entryDx=0;entryDy=0;" edge="1" parent="1" source="soal_table" target="jawaban_table">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="900" y="380" as="sourcePoint" />
+            <mxPoint x="620" y="600" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel_soal_jawaban_label" value="1:N" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="rel_soal_jawaban">
+          <mxGeometry x="-0.1" y="-1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Legend -->
+        <mxCell id="legend" value="" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#f5f5f5;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="700" y="500" width="240" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="legend_title" value="Legend" style="text;strokeColor=none;fillColor=none;html=1;fontSize=14;fontStyle=1;verticalAlign=middle;align=center;" vertex="1" parent="legend">
+          <mxGeometry y="26" width="240" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="legend_content" value="🔑 Primary Key (PK)&#xa;🔗 Foreign Key (FK)&#xa;🔒 Unique Constraint&#xa;📋 Index&#xa;AI = Auto Increment&#xa;UQ = Unique&#xa;&#xa;Table Colors:&#xa;• Purple: User Management&#xa;• Green: Class Management&#xa;• Yellow: Exam Management&#xa;• Red: Question Management&#xa;• Blue: Results &amp; Analytics&#xa;• Orange: Answer Tracking" style="text;strokeColor=none;fillColor=none;html=1;fontSize=11;fontStyle=0;verticalAlign=top;align=left;whiteSpace=wrap;" vertex="1" parent="legend">
+          <mxGeometry y="52" width="240" height="128" as="geometry" />
+        </mxCell>
+
+        <!-- Notes -->
+        <mxCell id="notes" value="📝 Database Notes:&#xa;• Supports multi-role authentication (admin/student/teacher)&#xa;• Tracks detailed exam results and individual answers&#xa;• Supports question shuffling and weighted scoring&#xa;• Includes comprehensive indexing for performance&#xa;• Stores timing data for learning analytics&#xa;• Compatible with xAPI/Tin Can API for LRS integration" style="text;strokeColor=none;fillColor=#fff2cc;html=1;fontSize=12;fontStyle=0;verticalAlign=top;align=left;whiteSpace=wrap;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="700" y="700" width="400" height="120" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

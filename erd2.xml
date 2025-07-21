@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net">
+  <diagram name="ERD CBT System - Fixed" id="CBT-ERD-Fixed">
+    <mxGraphModel dx="1422" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1200" pageHeight="800">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- Entity: User -->
+        <mxCell id="user" value="User" style="shape=rectangle;whiteSpace=wrap;rounded=1;fillColor=#DAE8FC;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="100" y="150" width="120" height="50" as="geometry"/>
+        </mxCell>
+        <!-- User Attributes -->
+        <mxCell id="user_id" value="user_id" style="ellipse;whiteSpace=wrap;fillColor=#FFE6CC;textDecoration=underline;" vertex="1" parent="1">
+          <mxGeometry x="20" y="80" width="80" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="username" value="username" style="ellipse;whiteSpace=wrap;fillColor=#FFE6CC;" vertex="1" parent="1">
+          <mxGeometry x="20" y="130" width="80" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="email" value="email" style="ellipse;whiteSpace=wrap;fillColor=#FFE6CC;" vertex="1" parent="1">
+          <mxGeometry x="20" y="180" width="80" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="password" value="password" style="ellipse;whiteSpace=wrap;fillColor=#FFE6CC;" vertex="1" parent="1">
+          <mxGeometry x="20" y="230" width="80" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="role" value="role" style="ellipse;whiteSpace=wrap;fillColor=#FFE6CC;" vertex="1" parent="1">
+          <mxGeometry x="20" y="280" width="80" height="40" as="geometry"/>
+        </mxCell>
+
+        <!-- Entity: Ujian -->
+        <mxCell id="ujian" value="Ujian" style="shape=rectangle;whiteSpace=wrap;rounded=1;fillColor=#FFF2CC;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="400" y="150" width="120" height="50" as="geometry"/>
+        </mxCell>
+        <!-- Ujian Attributes -->
+        <mxCell id="ujian_id" value="ujian_id" style="ellipse;whiteSpace=wrap;fillColor=#FFE6CC;textDecoration=underline;" vertex="1" parent="1">
+          <mxGeometry x="320" y="80" width="80" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="nama_ujian" value="nama_ujian" style="ellipse;whiteSpace=wrap;fillColor=#FFE6CC;" vertex="1" parent="1">
+          <mxGeometry x="420" y="80" width="80" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="tanggal_ujian" value="tanggal_ujian" style="ellipse;whiteSpace=wrap;fillColor=#FFE6CC;" vertex="1" parent="1">
+          <mxGeometry x="520" y="80" width="80" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="durasi" value="durasi" style="ellipse;whiteSpace=wrap;fillColor=#FFE6CC;" vertex="1" parent="1">
+          <mxGeometry x="320" y="230" width="80" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="status_ujian" value="status" style="ellipse;whiteSpace=wrap;fillColor=#FFE6CC;" vertex="1" parent="1">
+          <mxGeometry x="420" y="230" width="80" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="passing_score" value="passing_score" style="ellipse;whiteSpace=wrap;fillColor=#FFE6CC;" vertex="1" parent="1">
+          <mxGeometry x="520" y="230" width="80" height="40" as="geometry"/>
+        </mxCell>
+
+        <!-- Entity: Soal -->
+        <mxCell id="soal" value="Soal" style="shape=rectangle;whiteSpace=wrap;rounded=1;fillColor=#E1D5E7;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="700" y="150" width="120" height="50" as="geometry"/>
+        </mxCell>
+        <!-- Soal Attributes -->
+        <mxCell id="soal_id" value="soal_id" style="ellipse;whiteSpace=wrap;fillColor=#FFE6CC;textDecoration=underline;" vertex="1" parent="1">
+          <mxGeometry x="620" y="80" width="80" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="pertanyaan" value="pertanyaan" style="ellipse;whiteSpace=wrap;fillColor=#FFE6CC;" vertex="1" parent="1">
+          <mxGeometry x="720" y="80" width="80" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="pilihan_a" value="pilihan_a" style="ellipse;whiteSpace=wrap;fillColor=#FFE6CC;" vertex="1" parent="1">
+          <mxGeometry x="820" y="80" width="80" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="pilihan_b" value="pilihan_b" style="ellipse;whiteSpace=wrap;fillColor=#FFE6CC;" vertex="1" parent="1">
+          <mxGeometry x="920" y="80" width="80" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="pilihan_c" value="pilihan_c" style="ellipse;whiteSpace=wrap;fillColor=#FFE6CC;" vertex="1" parent="1">
+          <mxGeometry x="620" y="230" width="80" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="pilihan_d" value="pilihan_d" style="ellipse;whiteSpace=wrap;fillColor=#FFE6CC;" vertex="1" parent="1">
+          <mxGeometry x="720" y="230" width="80" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="jawaban_benar" value="jawaban_benar" style="ellipse;whiteSpace=wrap;fillColor=#FFE6CC;" vertex="1" parent="1">
+          <mxGeometry x="820" y="230" width="80" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="bobot_soal" value="bobot" style="ellipse;whiteSpace=wrap;fillColor=#FFE6CC;" vertex="1" parent="1">
+          <mxGeometry x="920" y="230" width="80" height="40" as="geometry"/>
+        </mxCell>
+
+        <!-- Entity: Hasil_Ujian -->
+        <mxCell id="hasil_ujian" value="Hasil_Ujian" style="shape=rectangle;whiteSpace=wrap;rounded=1;fillColor=#F8CECC;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="100" y="400" width="120" height="50" as="geometry"/>
+        </mxCell>
+        <!-- Hasil_Ujian Attributes -->
+        <mxCell id="hasil_id" value="hasil_id" style="ellipse;whiteSpace=wrap;fillColor=#FFE6CC;textDecoration=underline;" vertex="1" parent="1">
+          <mxGeometry x="20" y="330" width="80" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="nilai_total" value="nilai_total" style="ellipse;whiteSpace=wrap;fillColor=#FFE6CC;" vertex="1" parent="1">
+          <mxGeometry x="120" y="330" width="80" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="waktu_mulai" value="waktu_mulai" style="ellipse;whiteSpace=wrap;fillColor=#FFE6CC;" vertex="1" parent="1">
+          <mxGeometry x="220" y="330" width="80" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="waktu_selesai" value="waktu_selesai" style="ellipse;whiteSpace=wrap;fillColor=#FFE6CC;" vertex="1" parent="1">
+          <mxGeometry x="20" y="480" width="80" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="status_hasil" value="status" style="ellipse;whiteSpace=wrap;fillColor=#FFE6CC;" vertex="1" parent="1">
+          <mxGeometry x="120" y="480" width="80" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="tanggal_ujian_hasil" value="tanggal" style="ellipse;whiteSpace=wrap;fillColor=#FFE6CC;" vertex="1" parent="1">
+          <mxGeometry x="220" y="480" width="80" height="40" as="geometry"/>
+        </mxCell>
+
+        <!-- Entity: Jawaban_User -->
+        <mxCell id="jawaban_user" value="Jawaban_User" style="shape=rectangle;whiteSpace=wrap;rounded=1;fillColor=#D5E8D4;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="400" y="400" width="120" height="50" as="geometry"/>
+        </mxCell>
+        <!-- Jawaban_User Attributes -->
+        <mxCell id="jawaban_id" value="jawaban_id" style="ellipse;whiteSpace=wrap;fillColor=#FFE6CC;textDecoration=underline;" vertex="1" parent="1">
+          <mxGeometry x="320" y="330" width="80" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="jawaban_dipilih" value="jawaban_dipilih" style="ellipse;whiteSpace=wrap;fillColor=#FFE6CC;" vertex="1" parent="1">
+          <mxGeometry x="420" y="330" width="80" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="is_correct" value="is_correct" style="ellipse;whiteSpace=wrap;fillColor=#FFE6CC;" vertex="1" parent="1">
+          <mxGeometry x="520" y="330" width="80" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="waktu_jawab" value="waktu_jawab" style="ellipse;whiteSpace=wrap;fillColor=#FFE6CC;" vertex="1" parent="1">
+          <mxGeometry x="420" y="480" width="80" height="40" as="geometry"/>
+        </mxCell>
+
+        <!-- Relationships -->
+        <mxCell id="rel_user_ujian" value="mengikuti" style="rhombus;whiteSpace=wrap;fillColor=#FFE6CC;" vertex="1" parent="1">
+          <mxGeometry x="240" y="150" width="80" height="50" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="rel_ujian_soal" value="berisi" style="rhombus;whiteSpace=wrap;fillColor=#FFE6CC;" vertex="1" parent="1">
+          <mxGeometry x="540" y="150" width="80" height="50" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="rel_user_hasil" value="memiliki" style="rhombus;whiteSpace=wrap;fillColor=#FFE6CC;" vertex="1" parent="1">
+          <mxGeometry x="120" y="270" width="80" height="50" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="rel_hasil_jawaban" value="terdiri_dari" style="rhombus;whiteSpace=wrap;fillColor=#FFE6CC;" vertex="1" parent="1">
+          <mxGeometry x="240" y="400" width="80" height="50" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="rel_jawaban_soal" value="menjawab" style="rhombus;whiteSpace=wrap;fillColor=#FFE6CC;" vertex="1" parent="1">
+          <mxGeometry x="580" y="270" width="80" height="50" as="geometry"/>
+        </mxCell>
+
+        <!-- Connections for entities and relationships -->
+        <mxCell id="c1" style="endArrow=none;strokeWidth=2;" edge="1" parent="1" source="user" target="rel_user_ujian"/>
+        <mxCell id="c2" style="endArrow=none;strokeWidth=2;" edge="1" parent="1" source="rel_user_ujian" target="ujian"/>
+        <mxCell id="c3" style="endArrow=none;strokeWidth=2;" edge="1" parent="1" source="ujian" target="rel_ujian_soal"/>
+        <mxCell id="c4" style="endArrow=none;strokeWidth=2;" edge="1" parent="1" source="rel_ujian_soal" target="soal"/>
+        <mxCell id="c5" style="endArrow=none;strokeWidth=2;" edge="1" parent="1" source="user" target="rel_user_hasil"/>
+        <mxCell id="c6" style="endArrow=none;strokeWidth=2;" edge="1" parent="1" source="rel_user_hasil" target="hasil_ujian"/>
+        <mxCell id="c7" style="endArrow=none;strokeWidth=2;" edge="1" parent="1" source="hasil_ujian" target="rel_hasil_jawaban"/>
+        <mxCell id="c8" style="endArrow=none;strokeWidth=2;" edge="1" parent="1" source="rel_hasil_jawaban" target="jawaban_user"/>
+        <mxCell id="c9" style="endArrow=none;strokeWidth=2;" edge="1" parent="1" source="jawaban_user" target="rel_jawaban_soal"/>
+        <mxCell id="c10" style="endArrow=none;strokeWidth=2;" edge="1" parent="1" source="rel_jawaban_soal" target="soal"/>
+
+        <!-- Attribute connections for User -->
+        <mxCell id="a1" style="dashed=1;endArrow=none;" edge="1" parent="1" source="user" target="user_id"/>
+        <mxCell id="a2" style="dashed=1;endArrow=none;" edge="1" parent="1" source="user" target="username"/>
+        <mxCell id="a3" style="dashed=1;endArrow=none;" edge="1" parent="1" source="user" target="email"/>
+        <mxCell id="a4" style="dashed=1;endArrow=none;" edge="1" parent="1" source="user" target="password"/>
+        <mxCell id="a5" style="dashed=1;endArrow=none;" edge="1" parent="1" source="user" target="role"/>
+
+        <!-- Attribute connections for Ujian -->
+        <mxCell id="a6" style="dashed=1;endArrow=none;" edge="1" parent="1" source="ujian" target="ujian_id"/>
+        <mxCell id="a7" style="dashed=1;endArrow=none;" edge="1" parent="1" source="ujian" target="nama_ujian"/>
+        <mxCell id="a8" style="dashed=1;endArrow=none;" edge="1" parent="1" source="ujian" target="tanggal_ujian"/>
+        <mxCell id="a9" style="dashed=1;endArrow=none;" edge="1" parent="1" source="ujian" target="durasi"/>
+        <mxCell id="a10" style="dashed=1;endArrow=none;" edge="1" parent="1" source="ujian" target="status_ujian"/>
+        <mxCell id="a11" style="dashed=1;endArrow=none;" edge="1" parent="1" source="ujian" target="passing_score"/>
+
+        <!-- Attribute connections for Soal -->
+        <mxCell id="a12" style="dashed=1;endArrow=none;" edge="1" parent="1" source="soal" target="soal_id"/>
+        <mxCell id="a13" style="dashed=1;endArrow=none;" edge="1" parent="1" source="soal" target="pertanyaan"/>
+        <mxCell id="a14" style="dashed=1;endArrow=none;" edge="1" parent="1" source="soal" target="pilihan_a"/>
+        <mxCell id="a15" style="dashed=1;endArrow=none;" edge="1" parent="1" source="soal" target="pilihan_b"/>
+        <mxCell id="a16" style="dashed=1;endArrow=none;" edge="1" parent="1" source="soal" target="pilihan_c"/>
+        <mxCell id="a17" style="dashed=1;endArrow=none;" edge="1" parent="1" source="soal" target="pilihan_d"/>
+        <mxCell id="a18" style="dashed=1;endArrow=none;" edge="1" parent="1" source="soal" target="jawaban_benar"/>
+        <mxCell id="a19" style="dashed=1;endArrow=none;" edge="1" parent="1" source="soal" target="bobot_soal"/>
+
+        <!-- Attribute connections for Hasil_Ujian -->
+        <mxCell id="a20" style="dashed=1;endArrow=none;" edge="1" parent="1" source="hasil_ujian" target="hasil_id"/>
+        <mxCell id="a21" style="dashed=1;endArrow=none;" edge="1" parent="1" source="hasil_ujian" target="nilai_total"/>
+        <mxCell id="a22" style="dashed=1;endArrow=none;" edge="1" parent="1" source="hasil_ujian" target="waktu_mulai"/>
+        <mxCell id="a23" style="dashed=1;endArrow=none;" edge="1" parent="1" source="hasil_ujian" target="waktu_selesai"/>
+        <mxCell id="a24" style="dashed=1;endArrow=none;" edge="1" parent="1" source="hasil_ujian" target="status_hasil"/>
+        <mxCell id="a25" style="dashed=1;endArrow=none;" edge="1" parent="1" source="hasil_ujian" target="tanggal_ujian_hasil"/>
+
+        <!-- Attribute connections for Jawaban_User -->
+        <mxCell id="a26" style="dashed=1;endArrow=none;" edge="1" parent="1" source="jawaban_user" target="jawaban_id"/>
+        <mxCell id="a27" style="dashed=1;endArrow=none;" edge="1" parent="1" source="jawaban_user" target="jawaban_dipilih"/>
+        <mxCell id="a28" style="dashed=1;endArrow=none;" edge="1" parent="1" source="jawaban_user" target="is_correct"/>
+        <mxCell id="a29" style="dashed=1;endArrow=none;" edge="1" parent="1" source="jawaban_user" target="waktu_jawab"/>
+
+        <!-- Cardinality Labels -->
+        <mxCell id="card1" value="1" style="text;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="220" y="135" width="20" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="card2" value="M" style="text;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="320" y="135" width="20" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="card3" value="1" style="text;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="520" y="135" width="20" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="card4" value="M" style="text;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="680" y="135" width="20" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="card5" value="1" style="text;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="160" y="250" width="20" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="card6" value="M" style="text;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="160" y="380" width="20" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="card7" value="1" style="text;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="220" y="385" width="20" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="card8" value="M" style="text;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="380" y="385" width="20" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="card9" value="M" style="text;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="520" y="285" width="20" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="card10" value="1" style="text;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="680" y="285" width="20" height="20" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

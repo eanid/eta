@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Lampiran B2 - Rekapitulasi Nilai Kelas</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+
+    @media print {
+      .no-print {
+        display: none;
+      }
+      body {
+        margin: 0;
+        padding: 1cm;
+      }
+    }
+  </style>
+</head>
+<body class="bg-white p-8">
+  <div class="max-w-5xl mx-auto">
+    <header class="mb-8 text-center">
+      <h1 class="text-2xl font-bold text-gray-900">Lampiran B2</h1>
+      <h2 class="text-lg font-semibold text-gray-700">Rekapitulasi Nilai Kelas</h2>
+    </header>
+
+    <section class="mb-6 text-sm text-gray-700">
+      <p><strong>Mata Pelajaran:</strong> Matematika</p>
+      <p><strong>Kelas:</strong> 6A</p>
+      <p><strong>Tanggal Ujian:</strong> 3 Juli 2025</p>
+      <p><strong>Guru Pengampu:</strong> Ibu Nurhayati, S.Pd</p>
+    </section>
+
+    <div class="overflow-x-auto">
+      <table class="min-w-full border border-gray-300 text-sm">
+        <thead class="bg-gray-100 text-gray-700">
+          <tr>
+            <th class="border px-3 py-2 text-left">No</th>
+            <th class="border px-3 py-2 text-left">Nama Siswa</th>
+            <th class="border px-3 py-2 text-left">NIS</th>
+            <th class="border px-3 py-2 text-left">Nilai</th>
+            <th class="border px-3 py-2 text-left">Keterangan</th>
+          </tr>
+        </thead>
+        <tbody class="text-gray-800 divide-y divide-gray-200">
+          <tr>
+            <td class="px-3 py-2 border">1</td>
+            <td class="px-3 py-2 border">Alya Fadhila</td>
+            <td class="px-3 py-2 border">221001</td>
+            <td class="px-3 py-2 border font-medium">92</td>
+            <td class="px-3 py-2 border text-green-700">Lulus</td>
+          </tr>
+          <tr>
+            <td class="px-3 py-2 border">2</td>
+            <td class="px-3 py-2 border">Bagas Ananda</td>
+            <td class="px-3 py-2 border">221002</td>
+            <td class="px-3 py-2 border font-medium">78</td>
+            <td class="px-3 py-2 border text-green-700">Lulus</td>
+          </tr>
+          <tr>
+            <td class="px-3 py-2 border">3</td>
+            <td class="px-3 py-2 border">Citra Ayuningtyas</td>
+            <td class="px-3 py-2 border">221003</td>
+            <td class="px-3 py-2 border font-medium">59</td>
+            <td class="px-3 py-2 border text-red-600">Remedial</td>
+          </tr>
+          <!-- Tambahkan siswa lainnya sesuai kebutuhan -->
+        </tbody>
+      </table>
+    </div>
+
+    <footer class="mt-8 text-sm text-gray-600">
+      <p><em>Catatan:</em> Rekap ini bersifat digital dan akan disimpan dalam sistem sebagai dokumen administrasi akademik.</p>
+    </footer>
+  </div>
+</body>
+</html>

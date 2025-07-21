@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mengerjakan Ujian - CBT</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+  </style>
+</head>
+
+<body class="bg-gray-50 min-h-screen">
+  <div class="max-w-4xl mx-auto p-6">
+    <div class="mb-6">
+      <h1 class="text-3xl font-bold text-gray-900 mb-1">Ujian: IPA</h1>
+      <p class="text-gray-600">Waktu Tersisa: <span class="font-semibold">90:00</span></p>
+    </div>
+
+    <!-- Soal -->
+    <div class="bg-white p-6 rounded-lg shadow mb-6">
+      <h2 class="text-lg font-semibold mb-4">1. Apa yang dimaksud dengan fotosintesis?</h2>
+      <div class="space-y-3">
+        <label class="flex items-center gap-2">
+          <input type="radio" name="q1" class="text-blue-600"> A. Proses pengeluaran oksigen oleh hewan
+        </label>
+        <label class="flex items-center gap-2">
+          <input type="radio" name="q1" class="text-blue-600"> B. Proses tumbuhan menghasilkan makanan dengan bantuan cahaya matahari
+        </label>
+        <label class="flex items-center gap-2">
+          <input type="radio" name="q1" class="text-blue-600"> C. Proses menyerap air oleh akar
+        </label>
+        <label class="flex items-center gap-2">
+          <input type="radio" name="q1" class="text-blue-600"> D. Proses pertumbuhan daun
+        </label>
+      </div>
+    </div>
+
+    <!-- Navigasi soal -->
+    <div class="flex justify-between items-center">
+      <button class="bg-gray-300 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-400">Soal Sebelumnya</button>
+      <button class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-500">Soal Selanjutnya</button>
+    </div>
+
+    <!-- Kirim jawaban -->
+    <div class="mt-8 text-center">
+      <button class="bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-500">Kirim Jawaban</button>
+    </div>
+  </div>
+</body>
+
+</html>

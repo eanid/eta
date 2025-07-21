@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" modified="2025-06-16T00:00:00.000Z" agent="5.0" version="24.7.17" etag="drawio-erd" type="device">
+  <diagram id="CBT-ERD" name="CBT Entity Relationship Diagram">
+    <mxGraphModel dx="1422" dy="794" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- Title -->
+        <mxCell id="title" value="CBT (Computer-Based Testing) - Entity Relationship Diagram" style="text;strokeColor=none;fillColor=none;html=1;fontSize=22;fontStyle=1;verticalAlign=middle;align=center;fontColor=#1f4e79;" vertex="1" parent="1">
+          <mxGeometry x="450" y="30" width="500" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- USER Entity -->
+        <mxCell id="user_entity" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="100" y="150" width="160" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="user_title" value="USER" style="text;strokeColor=none;fillColor=none;html=1;fontSize=16;fontStyle=1;verticalAlign=middle;align=center;" vertex="1" parent="1">
+          <mxGeometry x="100" y="155" width="160" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="user_attrs" value="• id (PK)&#xa;• username&#xa;• email&#xa;• password&#xa;• role&#xa;• full_name&#xa;• phone&#xa;• NIK&#xa;• NISN" style="text;strokeColor=none;fillColor=none;html=1;fontSize=11;fontStyle=0;verticalAlign=top;align=left;" vertex="1" parent="1">
+          <mxGeometry x="110" y="185" width="140" height="80" as="geometry" />
+        </mxCell>
+
+        <!-- KELAS Entity -->
+        <mxCell id="kelas_entity" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="380" y="150" width="140" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="kelas_title" value="KELAS" style="text;strokeColor=none;fillColor=none;html=1;fontSize=16;fontStyle=1;verticalAlign=middle;align=center;" vertex="1" parent="1">
+          <mxGeometry x="380" y="155" width="140" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="kelas_attrs" value="• id (PK)&#xa;• nama_kelas&#xa;• deskripsi" style="text;strokeColor=none;fillColor=none;html=1;fontSize=11;fontStyle=0;verticalAlign=top;align=left;" vertex="1" parent="1">
+          <mxGeometry x="390" y="185" width="120" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- UJIAN Entity -->
+        <mxCell id="ujian_entity" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="650" y="150" width="180" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="ujian_title" value="UJIAN" style="text;strokeColor=none;fillColor=none;html=1;fontSize=16;fontStyle=1;verticalAlign=middle;align=center;" vertex="1" parent="1">
+          <mxGeometry x="650" y="155" width="180" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="ujian_attrs" value="• id (PK)&#xa;• nama_ujian&#xa;• deskripsi&#xa;• tanggal_ujian&#xa;• waktu_mulai&#xa;• durasi&#xa;• jumlah_soal&#xa;• status&#xa;• passing_score&#xa;• shuffle_questions&#xa;• kelas" style="text;strokeColor=none;fillColor=none;html=1;fontSize=11;fontStyle=0;verticalAlign=top;align=left;" vertex="1" parent="1">
+          <mxGeometry x="660" y="185" width="160" height="100" as="geometry" />
+        </mxCell>
+
+        <!-- SOAL Entity -->
+        <mxCell id="soal_entity" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="950" y="150" width="180" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="soal_title" value="SOAL" style="text;strokeColor=none;fillColor=none;html=1;fontSize=16;fontStyle=1;verticalAlign=middle;align=center;" vertex="1" parent="1">
+          <mxGeometry x="950" y="155" width="180" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="soal_attrs" value="• id (PK)&#xa;• nomor_soal&#xa;• pertanyaan&#xa;• pilihan_a, b, c, d, e&#xa;• jawaban_benar&#xa;• bobot&#xa;• kategori&#xa;• gambar_url" style="text;strokeColor=none;fillColor=none;html=1;fontSize=11;fontStyle=0;verticalAlign=top;align=left;" vertex="1" parent="1">
+          <mxGeometry x="960" y="185" width="160" height="80" as="geometry" />
+        </mxCell>
+
+        <!-- HASIL_UJIAN Entity -->
+        <mxCell id="hasil_entity" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="100" y="400" width="200" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="hasil_title" value="HASIL_UJIAN" style="text;strokeColor=none;fillColor=none;html=1;fontSize=16;fontStyle=1;verticalAlign=middle;align=center;" vertex="1" parent="1">
+          <mxGeometry x="100" y="405" width="200" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="hasil_attrs" value="• id (PK)&#xa;• nilai_total&#xa;• jumlah_benar&#xa;• jumlah_salah&#xa;• jumlah_kosong&#xa;• waktu_mulai&#xa;• waktu_selesai&#xa;• durasi_pengerjaan&#xa;• status&#xa;• tanggal&#xa;• is_passed&#xa;• user_agent" style="text;strokeColor=none;fillColor=none;html=1;fontSize=11;fontStyle=0;verticalAlign=top;align=left;" vertex="1" parent="1">
+          <mxGeometry x="110" y="435" width="180" height="120" as="geometry" />
+        </mxCell>
+
+        <!-- JAWABAN_USER Entity -->
+        <mxCell id="jawaban_entity" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="450" y="400" width="160" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="jawaban_title" value="JAWABAN_USER" style="text;strokeColor=none;fillColor=none;html=1;fontSize=16;fontStyle=1;verticalAlign=middle;align=center;" vertex="1" parent="1">
+          <mxGeometry x="450" y="405" width="160" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="jawaban_attrs" value="• id (PK)&#xa;• jawaban_dipilih&#xa;• is_correct&#xa;• waktu_jawab" style="text;strokeColor=none;fillColor=none;html=1;fontSize=11;fontStyle=0;verticalAlign=top;align=left;" vertex="1" parent="1">
+          <mxGeometry x="460" y="435" width="140" height="80" as="geometry" />
+        </mxCell>
+
+        <!-- Relationships -->
+
+        <!-- User BELONGS TO Kelas (N:1) -->
+        <mxCell id="rel_user_kelas" value="" style="endArrow=ERoneToMany;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=2;" edge="1" parent="1" source="user_entity" target="kelas_entity">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="260" y="210" as="sourcePoint" />
+            <mxPoint x="380" y="200" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel_user_kelas_label" value="BELONGS TO" style="rhombus;whiteSpace=wrap;html=1;fillColor=#f0f0f0;strokeColor=#666666;fontSize=11;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="290" y="180" width="80" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="rel_user_kelas_card" value="N:1" style="text;strokeColor=none;fillColor=none;html=1;fontSize=12;fontStyle=1;verticalAlign=middle;align=center;" vertex="1" parent="1">
+          <mxGeometry x="310" y="155" width="40" height="20" as="geometry" />
+        </mxCell>
+
+        <!-- User CREATES Ujian (1:N) -->
+        <mxCell id="rel_user_ujian" value="" style="endArrow=ERoneToMany;html=1;rounded=0;exitX=1;exitY=0.2;exitDx=0;exitDy=0;entryX=0;entryY=0.2;entryDx=0;entryDy=0;strokeWidth=2;" edge="1" parent="1" source="user_entity" target="ujian_entity">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="260" y="174" as="sourcePoint" />
+            <mxPoint x="650" y="174" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel_user_ujian_label" value="CREATES" style="rhombus;whiteSpace=wrap;html=1;fillColor=#f0f0f0;strokeColor=#666666;fontSize=11;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="440" y="90" width="80" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="rel_user_ujian_card" value="1:N" style="text;strokeColor=none;fillColor=none;html=1;fontSize=12;fontStyle=1;verticalAlign=middle;align=center;" vertex="1" parent="1">
+          <mxGeometry x="460" y="65" width="40" height="20" as="geometry" />
+        </mxCell>
+
+        <!-- Ujian CONTAINS Soal (1:N) -->
+        <mxCell id="rel_ujian_soal" value="" style="endArrow=ERoneToMany;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=2;" edge="1" parent="1" source="ujian_entity" target="soal_entity">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="830" y="220" as="sourcePoint" />
+            <mxPoint x="950" y="210" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel_ujian_soal_label" value="CONTAINS" style="rhombus;whiteSpace=wrap;html=1;fillColor=#f0f0f0;strokeColor=#666666;fontSize=11;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="850" y="190" width="80" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="rel_ujian_soal_card" value="1:N" style="text;strokeColor=none;fillColor=none;html=1;fontSize=12;fontStyle=1;verticalAlign=middle;align=center;" vertex="1" parent="1">
+          <mxGeometry x="870" y="165" width="40" height="20" as="geometry" />
+        </mxCell>
+
+        <!-- User TAKES Ujian → Hasil_Ujian (M:N through Hasil_Ujian) -->
+        <mxCell id="rel_user_hasil" value="" style="endArrow=ERoneToMany;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeWidth=2;" edge="1" parent="1" source="user_entity" target="hasil_entity">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="180" y="270" as="sourcePoint" />
+            <mxPoint x="200" y="400" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel_user_hasil_label" value="TAKES" style="rhombus;whiteSpace=wrap;html=1;fillColor=#f0f0f0;strokeColor=#666666;fontSize=11;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="140" y="310" width="80" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="rel_user_hasil_card" value="1:N" style="text;strokeColor=none;fillColor=none;html=1;fontSize=12;fontStyle=1;verticalAlign=middle;align=center;" vertex="1" parent="1">
+          <mxGeometry x="160" y="285" width="40" height="20" as="geometry" />
+        </mxCell>
+
+        <!-- Ujian → Hasil_Ujian (1:N) -->
+        <mxCell id="rel_ujian_hasil" value="" style="endArrow=ERoneToMany;html=1;rounded=0;exitX=0.2;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0.2;entryDx=0;entryDy=0;strokeWidth=2;" edge="1" parent="1" source="ujian_entity" target="hasil_entity">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="686" y="290" as="sourcePoint" />
+            <mxPoint x="300" y="432" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel_ujian_hasil_label" value="GENERATES" style="rhombus;whiteSpace=wrap;html=1;fillColor=#f0f0f0;strokeColor=#666666;fontSize=11;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="400" y="320" width="90" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="rel_ujian_hasil_card" value="1:N" style="text;strokeColor=none;fillColor=none;html=1;fontSize=12;fontStyle=1;verticalAlign=middle;align=center;" vertex="1" parent="1">
+          <mxGeometry x="425" y="295" width="40" height="20" as="geometry" />
+        </mxCell>
+
+        <!-- Hasil_Ujian CONTAINS Jawaban_User (1:N) -->
+        <mxCell id="rel_hasil_jawaban" value="" style="endArrow=ERoneToMany;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=2;" edge="1" parent="1" source="hasil_entity" target="jawaban_entity">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="300" y="480" as="sourcePoint" />
+            <mxPoint x="450" y="460" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel_hasil_jawaban_label" value="CONTAINS" style="rhombus;whiteSpace=wrap;html=1;fillColor=#f0f0f0;strokeColor=#666666;fontSize=11;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="330" y="440" width="80" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="rel_hasil_jawaban_card" value="1:N" style="text;strokeColor=none;fillColor=none;html=1;fontSize=12;fontStyle=1;verticalAlign=middle;align=center;" vertex="1" parent="1">
+          <mxGeometry x="350" y="415" width="40" height="20" as="geometry" />
+        </mxCell>
+
+        <!-- Soal REFERENCES Jawaban_User (1:N) -->
+        <mxCell id="rel_soal_jawaban" value="" style="endArrow=ERoneToMany;html=1;rounded=0;exitX=0;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0;entryDx=0;entryDy=0;strokeWidth=2;" edge="1" parent="1" source="soal_entity" target="jawaban_entity">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="950" y="270" as="sourcePoint" />
+            <mxPoint x="610" y="400" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel_soal_jawaban_label" value="ANSWERED BY" style="rhombus;whiteSpace=wrap;html=1;fillColor=#f0f0f0;strokeColor=#666666;fontSize=11;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="700" y="320" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="rel_soal_jawaban_card" value="1:N" style="text;strokeColor=none;fillColor=none;html=1;fontSize=12;fontStyle=1;verticalAlign=middle;align=center;" vertex="1" parent="1">
+          <mxGeometry x="730" y="295" width="40" height="20" as="geometry" />
+        </mxCell>
+
+        <!-- Cardinality Labels -->
+        <mxCell id="card_user_kelas_1" value="N" style="text;strokeColor=none;fillColor=none;html=1;fontSize=14;fontStyle=1;verticalAlign=middle;align=center;fontColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="270" y="190" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="card_user_kelas_2" value="1" style="text;strokeColor=none;fillColor=none;html=1;fontSize=14;fontStyle=1;verticalAlign=middle;align=center;fontColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="360" y="190" width="20" height="20" as="geometry" />
+        </mxCell>
+
+        <mxCell id="card_user_ujian_1" value="1" style="text;strokeColor=none;fillColor=none;html=1;fontSize=14;fontStyle=1;verticalAlign=middle;align=center;fontColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="270" y="150" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="card_user_ujian_2" value="N" style="text;strokeColor=none;fillColor=none;html=1;fontSize=14;fontStyle=1;verticalAlign=middle;align=center;fontColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="620" y="150" width="20" height="20" as="geometry" />
+        </mxCell>
+
+        <mxCell id="card_ujian_soal_1" value="1" style="text;strokeColor=none;fillColor=none;html=1;fontSize=14;fontStyle=1;verticalAlign=middle;align=center;fontColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="820" y="200" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="card_ujian_soal_2" value="N" style="text;strokeColor=none;fillColor=none;html=1;fontSize=14;fontStyle=1;verticalAlign=middle;align=center;fontColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="920" y="200" width="20" height="20" as="geometry" />
+        </mxCell>
+
+        <mxCell id="card_user_hasil_1" value="1" style="text;strokeColor=none;fillColor=none;html=1;fontSize=14;fontStyle=1;verticalAlign=middle;align=center;fontColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="170" y="280" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="card_user_hasil_2" value="N" style="text;strokeColor=none;fillColor=none;html=1;fontSize=14;fontStyle=1;verticalAlign=middle;align=center;fontColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="170" y="370" width="20" height="20" as="geometry" />
+        </mxCell>
+
+        <mxCell id="card_hasil_jawaban_1" value="1" style="text;strokeColor=none;fillColor=none;html=1;fontSize=14;fontStyle=1;verticalAlign=middle;align=center;fontColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="310" y="450" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="card_hasil_jawaban_2" value="N" style="text;strokeColor=none;fillColor=none;html=1;fontSize=14;fontStyle=1;verticalAlign=middle;align=center;fontColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="420" y="450" width="20" height="20" as="geometry" />
+        </mxCell>
+
+        <!-- Legend -->
+        <mxCell id="legend_box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="750" y="400" width="280" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="legend_title" value="ERD Legend" style="text;strokeColor=none;fillColor=none;html=1;fontSize=16;fontStyle=1;verticalAlign=middle;align=center;" vertex="1" parent="1">
+          <mxGeometry x="750" y="410" width="280" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="legend_content" value="📋 Entity Types:&#xa;• USER: System users (admin/student/teacher)&#xa;• KELAS: Student classes/groups&#xa;• UJIAN: Exam/test configurations&#xa;• SOAL: Individual questions&#xa;• HASIL_UJIAN: Exam results &amp; performance&#xa;• JAWABAN_USER: Individual answer records&#xa;&#xa;🔗 Relationship Types:&#xa;• One-to-Many (1:N): Parent → Multiple Children&#xa;• Many-to-One (N:1): Multiple Children → Parent&#xa;&#xa;🎯 Primary Keys: Unique entity identifiers&#xa;🔗 Foreign Keys: References to other entities" style="text;strokeColor=none;fillColor=none;html=1;fontSize=11;fontStyle=0;verticalAlign=top;align=left;" vertex="1" parent="1">
+          <mxGeometry x="760" y="440" width="260" height="135" as="geometry" />
+        </mxCell>
+
+        <!-- Business Rules -->
+        <mxCell id="rules_box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="100" y="620" width="600" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="rules_title" value="Business Rules &amp; Constraints" style="text;strokeColor=none;fillColor=none;html=1;fontSize=16;fontStyle=1;verticalAlign=middle;align=center;" vertex="1" parent="1">
+          <mxGeometry x="100" y="630" width="600" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="rules_content" value="1. Each USER can belong to one KELAS (students) or manage multiple KELAS (teachers/admins)&#xa;2. Each UJIAN is created by one USER and contains multiple SOAL&#xa;3. Each USER can take multiple UJIAN, generating multiple HASIL_UJIAN records&#xa;4. Each HASIL_UJIAN contains multiple JAWABAN_USER (one per question answered)&#xa;5. Each SOAL can be answered multiple times by different users&#xa;6. System supports role-based access: admin, teacher, student&#xa;7. Exams can be configured with time limits, passing scores, and question shuffling" style="text;strokeColor=none;fillColor=none;html=1;fontSize=11;fontStyle=0;verticalAlign=top;align=left;" vertex="1" parent="1">
+          <mxGeometry x="110" y="660" width="580" height="75" as="geometry" />
+        </mxCell>
+
+        <!-- Data Flow Indicators -->
+        <mxCell id="flow_arrow1" value="" style="curved=1;endArrow=classic;html=1;rounded=0;strokeColor=#ff6666;strokeWidth=3;dashed=1;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="180" y="300" as="sourcePoint" />
+            <mxPoint x="740" y="300" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="300" y="280" />
+              <mxPoint x="500" y="280" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="flow_label1" value="Exam Taking Flow" style="text;strokeColor=none;fillColor=#ffcccc;html=1;fontSize=12;fontStyle=1;verticalAlign=middle;align=center;strokeColor=#ff6666;" vertex="1" parent="1">
+          <mxGeometry x="420" y="260" width="120" height="25" as="geometry" />
+        </mxCell>
+
+        <mxCell id="flow_arrow2" value="" style="curved=1;endArrow=classic;html=1;rounded=0;strokeColor=#66b2ff;strokeWidth=3;dashed=1;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="200" y="520" as="sourcePoint" />
+            <mxPoint x="530" y="520" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="300" y="540" />
+              <mxPoint x="400" y="540" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="flow_label2" value="Answer Recording Flow" style="text;strokeColor=none;fillColor=#cce6ff;html=1;fontSize=12;fontStyle=1;verticalAlign=middle;align=center;strokeColor=#66b2ff;" vertex="1" parent="1">
+          <mxGeometry x="310" y="550" width="140" height="25" as="geometry" />
+        </mxCell>
+
+        <mxCell id="flow_arrow3" value="" style="curved=1;endArrow=classic;html=1;rounded=0;strokeColor=#00cc66;strokeWidth=3;dashed=1;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="950" y="290" as="sourcePoint" />
+            <mxPoint x="620" y="520" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="850" y="380" />
+              <mxPoint x="700" y="480" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="flow_label3" value="Question Response Flow" style="text;strokeColor=none;fillColor=#ccffcc;html=1;fontSize=12;fontStyle=1;verticalAlign=middle;align=center;" vertex="1" parent="1">
+          <mxGeometry x="700" y="400" width="140" height="25" as="geometry" />
+        </mxCell>
+
+        <!-- System Notes -->
+        <mxCell id="notes_box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="750" y="620" width="280" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="notes_title" value="System Notes" style="text;strokeColor=none;fillColor=none;html=1;fontSize=16;fontStyle=1;verticalAlign=middle;align=center;" vertex="1" parent="1">
+          <mxGeometry x="750" y="630" width="280" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="notes_content" value="• All timestamps stored in UTC&#xa;• Soft delete implemented for data integrity&#xa;• Audit logging on critical operations&#xa;• Regular backup schedule&#xa;• Data retention policy: 5 years&#xa;• Encryption for sensitive data" style="text;strokeColor=none;fillColor=none;html=1;fontSize=11;fontStyle=0;verticalAlign=top;align=left;" vertex="1" parent="1">
+          <mxGeometry x="760" y="660" width="260" height="75" as="geometry" />
+        </mxCell>
+
+        <!-- Version Info -->
+        <mxCell id="version_info" value="v1.0.0 | Last Updated: 2025-06-16" style="text;strokeColor=none;fillColor=none;html=1;fontSize=10;fontStyle=2;verticalAlign=middle;align=right;" vertex="1" parent="1">
+          <mxGeometry x="1100" y="850" width="200" height="20" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

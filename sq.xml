@@ -1,0 +1,32 @@
+<sequenceDiagram name="CBT Exam Flow">
+  <participant name="Siswa" />
+  <participant name="Sistem" />
+  <participant name="Guru" />
+  <participant name="Admin" />
+
+  <message from="Siswa" to="Sistem">Login(username, password)</message>
+  <message from="Sistem" to="Siswa">Auth Success / Failed</message>
+
+  <message from="Siswa" to="Sistem">Pilih Ujian</message>
+  <message from="Sistem" to="Database">SELECT * FROM ujian WHERE status='active'</message>
+
+  <message from="Siswa" to="Sistem">Mulai Ujian</message>
+  <message from="Sistem" to="Database">INSERT INTO hasil_ujian ...</message>
+  <message from="Sistem" to="Siswa">Tampilkan soal pertama</message>
+
+  <loop for="Setiap Soal">
+    <message from="Siswa" to="Sistem">Pilih Jawaban</message>
+    <message from="Sistem" to="Database">INSERT INTO jawaban_user ...</message>
+  </loop>
+
+  <message from="Siswa" to="Sistem">Selesaikan Ujian</message>
+  <message from="Sistem" to="Database">UPDATE hasil_ujian SET status='completed' ...</message>
+  <message from="Sistem" to="Database">Hitung nilai akhir</message>
+  <message from="Sistem" to="Database">UPDATE hasil_ujian SET nilai_total, is_passed ...</message>
+
+  <message from="Guru" to="Sistem">Monitoring Hasil Ujian</message>
+  <message from="Sistem" to="Database">SELECT hasil_ujian WHERE kelas_id = ?</message>
+
+  <message from="Admin" to="Sistem">Bagikan Nilai</message>
+  <message from="Sistem" to="OrangTua">Kirim hasil ujian</message>
+</sequenceDiagram>

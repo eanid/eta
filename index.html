@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registrasi Admin - CBT App</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .form-input {
+      background: #f8f9fa;
+      border: 1px solid #e9ecef;
+      border-radius: 8px;
+      padding: 12px 16px;
+      font-size: 14px;
+      transition: all 0.2s ease;
+      font-weight: 400;
+    }
+
+    .form-input:focus {
+      outline: none;
+      border-color: #3b82f6;
+      background: #ffffff;
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+    }
+
+    .form-label {
+      font-size: 13px;
+      font-weight: 500;
+      color: #374151;
+      margin-bottom: 6px;
+      display: block;
+    }
+
+    .btn-primary {
+      background: #3b82f6;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 12px 24px;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      width: 100%;
+    }
+
+    .btn-primary:hover {
+      background: #2563eb;
+    }
+
+    .sidebar-item {
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-size: 13px;
+      color: #6b7280;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 2px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .sidebar-item:hover {
+      background: #f9fafb;
+    }
+
+    .sidebar-item.active {
+      background: #f3f4f6;
+      color: #374151;
+      font-weight: 500;
+    }
+
+    .tag {
+      background: #f3f4f6;
+      color: #6b7280;
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 500;
+    }
+
+    .divider {
+      height: 1px;
+      background: #e5e7eb;
+      margin: 16px 0;
+    }
+
+    .main-layout {
+      display: flex;
+      height: 100vh;
+    }
+
+    .sidebar {
+      width: 280px;
+      background: #f8f9fa;
+      border-right: 1px solid #e5e7eb;
+      flex-shrink: 0;
+    }
+
+    .content-area {
+      flex: 1;
+      display: flex;
+      background: #ffffff;
+    }
+
+    .form-section {
+      flex: 1;
+      overflow-y: auto;
+    }
+
+    .info-panel {
+      width: 320px;
+      background: #f8f9fa;
+      border-left: 1px solid #e5e7eb;
+      flex-shrink: 0;
+      overflow-y: auto;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="main-layout">
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <div class="p-6">
+        <div class="flex items-center space-x-3 mb-8">
+          <div class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
+            <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253">
+              </path>
+            </svg>
+          </div>
+          <span class="font-semibold text-gray-900">CBT Admin</span>
+        </div>
+
+        <nav class="space-y-1">
+          <div class="sidebar-item active">
+            <span>Registrasi</span>
+          </div>
+          <div class="sidebar-item">
+            <span>Login</span>
+          </div>
+          <div class="sidebar-item">
+            <span>Input Guru</span>
+          </div>
+          <div class="sidebar-item">
+            <span>Input Kelas</span>
+          </div>
+          <div class="sidebar-item">
+            <span>Input Murid</span>
+          </div>
+          <div class="sidebar-item">
+            <span>Laporan</span>
+            <!-- <span class="text-xs bg-gray-200 text-gray-600 px-2 py-1 rounded">Soon</span> -->
+          </div>
+        </nav>
+
+        <div class="divider"></div>
+
+        <div class="space-y-1">
+          <div class="sidebar-item">
+            <span>Bantuan</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Content Area -->
+    <div class="content-area">
+      <!-- Form Section -->
+      <div class="form-section">
+        <div class="p-8">
+          <div class="max-w-md mx-auto">
+            <div class="mb-8">
+              <h1 class="text-2xl font-semibold text-gray-900 mb-2">Registrasi Admin</h1>
+              <p class="text-sm text-gray-600">Daftar sebagai admin CBT SDIT NURUL IMAN Pondok Bambu</p>
+            </div>
+
+            <form class="space-y-6">
+              <div>
+                <label class="form-label">Nama Lengkap</label>
+                <input type="text" class="form-input w-full" placeholder="Masukkan nama lengkap Anda">
+              </div>
+
+              <div>
+                <label class="form-label">Username</label>
+                <input type="text" class="form-input w-full" placeholder="Masukkan nama pengguna Anda">
+              </div>
+
+              <div>
+                <label class="form-label">Email</label>
+                <input type="email" class="form-input w-full" placeholder="admin@example.com">
+              </div>
+
+              <div>
+                <label class="form-label">Nomor Telepon</label>
+                <input type="tel" class="form-input w-full" placeholder="08xxxxxxxxxx">
+              </div>
+
+              <div>
+                <label class="form-label">NIK/NISN</label>
+                <input type="text" class="form-input w-full" placeholder="Masukkan NIK atau NISN Anda jika ada">
+              </div>
+
+              <div>
+                <label class="form-label">Kata Sandi</label>
+                <input type="password" class="form-input w-full" placeholder="Minimal 8 karakter">
+              </div>
+
+              <button type="submit" class="btn-primary">
+                Daftar Sebagai Admin
+              </button>
+
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- Info Panel -->
+      <div class="info-panel">
+        <div class="p-6">
+          <div class="mb-6">
+            <h3 class="font-semibold text-gray-900 mb-3">Informasi Registrasi</h3>
+            <div class="text-sm text-gray-600 space-y-3">
+              <p>Setelah mendaftar sebagai Admin, Admin akan mendapatkan akses ke:</p>
+              <ul class="space-y-3">
+                <li class="flex items-start space-x-3">
+                  <span class="tag">dashboard</span>
+                  <span>Input Data Guru. kelas dan Murid</span>
+                </li>
+                <li class="flex items-start space-x-3">
+                  <span class="tag">Ujian</span>
+                  <span>Membuat dan mengelola soal ujian</span>
+                </li>
+                <li class="flex items-start space-x-3">
+                  <span class="tag">Siswa</span>
+                  <span>Mengelola data dan nilai siswa</span>
+                </li>
+                <li class="flex items-start space-x-3">
+                  <span class="tag">Laporan</span>
+                  <span>Analisis dan statistik hasil ujian</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="divider"></div>
+
+          <div class="mb-6">
+            <h4 class="font-medium text-gray-900 mb-3">Persyaratan Registrasi</h4>
+            <div class="text-sm text-gray-600 space-y-2">
+              <div class="flex items-center space-x-2">
+                <svg class="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd"
+                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                    clip-rule="evenodd"></path>
+                </svg>
+                <span>Email aktif dan valid</span>
+              </div>
+              <div class="flex items-center space-x-2">
+                <svg class="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd"
+                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                    clip-rule="evenodd"></path>
+                </svg>
+                <span>Kata sandi minimal 8 karakter</span>
+              </div>
+              <div class="flex items-center space-x-2">
+                <svg class="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd"
+                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                    clip-rule="evenodd"></path>
+                </svg>
+                <span>Nomor telepon yang dapat dihubungi</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- <div class="divider"></div> -->
+
+          <!-- <div class="mb-6">
+            <h4 class="font-medium text-gray-900 mb-3">Proses Verifikasi</h4>
+            <div class="text-sm text-gray-600 space-y-2">
+              <div class="flex items-start space-x-2">
+                <span
+                  class="flex-shrink-0 w-5 h-5 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-xs font-medium">1</span>
+                <span>Isi formulir registrasi dengan lengkap</span>
+              </div>
+              <div class="flex items-start space-x-2">
+                <span
+                  class="flex-shrink-0 w-5 h-5 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-xs font-medium">2</span>
+                <span>Verifikasi email yang dikirimkan</span>
+              </div>
+              <div class="flex items-start space-x-2">
+                <span
+                  class="flex-shrink-0 w-5 h-5 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-xs font-medium">3</span>
+                <span>Tunggu persetujuan dari tim admin</span>
+              </div>
+              <div class="flex items-start space-x-2">
+                <span
+                  class="flex-shrink-0 w-5 h-5 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-xs font-medium">4</span>
+                <span>Akses dashboard admin tersedia</span>
+              </div>
+            </div>
+          </div> -->
+
+          <!-- <div class="divider"></div> -->
+
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
